@@ -1,1 +1,13 @@
-<p>login-form works!</p>
+<mat-card class="login-card">
+    <mat-card-header class="login-form-header">Login</mat-card-header>
+    <hr class="header-content-separator">
+    <mat-card-content class="login-form-contents">
+        <div class="form-elements">
+            <input class="input-field" type="email" placeholder="Email">
+            <input class="input-field" type="Password" placeholder="Password">
+        </div>
+    </mat-card-content>
+    <mat-card-footer class="login-form-footer">
+        <button mat-button (click)="proceedLogIn()">Log In</button>
+    </mat-card-footer>
+</mat-card>

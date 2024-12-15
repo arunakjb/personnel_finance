@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
     selector: 'app-register-form',
@@ -6,6 +6,18 @@ import { Component } from '@angular/core';
     styleUrl: './register-form.component.scss',
     standalone: false
 })
-export class RegisterFormComponent {
-
+export class RegisterFormComponent implements OnInit{
+    public showRegisterForm: boolean = true;
+    public registrationSuccess: boolean = false
+    public renderLogin: boolean = false;
+    ngOnInit(): void {
+        
+    }
+    public proceedRegister(){
+        this.registrationSuccess = true;
+        if(this.registrationSuccess){
+            this.renderLogin = true;
+            this.showRegisterForm = false;
+        }
+    }
 }

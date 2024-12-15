@@ -1,0 +1,52 @@
+$card-height : 500px;
+$card-width : 600px;
+.register-card{
+    color:rgb(247, 242, 242);
+    background-color: rgb(85, 132, 146);
+    align-items: center;
+    height: $card-height;
+    width: $card-height;
+
+    .register-form-header{
+        font-weight: bolder;
+        font-size: larger;
+        margin-top: 2%;
+    }
+
+    .header-content-separator{
+        width: 420px;
+        margin-top: 5%;
+    }
+
+    .register-form-footer{
+        margin-top: 10%;
+    }
+
+    .form-elements{
+        display: flex;
+        flex-direction: column;
+        
+        .input-field{
+            color: azure;
+            background-color:  rgb(85, 132, 146);
+            outline: none;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            border-bottom-color: rgb(57, 125, 125);
+            width: 300px;
+            margin-top: 20%;
+            &:focus { 
+                border-bottom-color: azure;
+                &::placeholder{
+                    opacity: 0.8;
+                }
+            }
+            &::placeholder{
+                color: azure;
+                opacity: 0.3;
+            }
+        }
+    }
+    
+}

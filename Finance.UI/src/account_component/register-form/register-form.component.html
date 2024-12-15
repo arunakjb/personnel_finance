@@ -1,1 +1,20 @@
-<p>register-form works!</p>
+<ng-container *ngIf="showRegisterForm">
+    <mat-card class="register-card">
+        <mat-card-header class="register-form-header">Register</mat-card-header>
+        <hr class="header-content-separator">
+        <mat-card-content class="register-form-contents">
+            <div class="form-elements">
+                <input class="input-field" type="email" placeholder="Email">
+                <input class="input-field" type="Password" placeholder="Password">
+                <input class="input-field" type="Password" placeholder="Confirm password">
+            </div>
+        </mat-card-content>
+        <mat-card-footer class="register-form-footer">
+            <button mat-button (click)="proceedRegister()">Register</button>
+        </mat-card-footer>
+    </mat-card>
+</ng-container>
+<ng-container *ngIf="renderLogin">
+    <app-login-form></app-login-form>
+</ng-container>
+

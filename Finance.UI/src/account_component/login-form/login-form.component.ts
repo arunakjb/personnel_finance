@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
     selector: 'app-login-form',
@@ -6,6 +6,14 @@ import { Component } from '@angular/core';
     styleUrl: './login-form.component.scss',
     standalone: false
 })
-export class LoginFormComponent {
+export class LoginFormComponent implements OnInit{
+    @Output() loginEvent = new EventEmitter<void>();
 
+    ngOnInit(): void {
+        
+    }
+
+    public proceedLogIn(){
+        this.loginEvent.emit();
+    }
 }
