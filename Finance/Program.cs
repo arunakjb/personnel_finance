@@ -28,6 +28,14 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.Cookie.Name = "cookie";
 });
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowNgClient",
+        builder => builder.WithOrigins("http://localhost:4200")
+        .AllowAnyHeader()
+        .AllowAnyMethod());
+});
+
 builder.Services.AddScoped<AccountService>();
 
 // Build App.
@@ -44,6 +52,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseRouting();
 app.UseAuthentication();
+app.UseCors("AllowNgClient");
 app.UseAuthorization();
 app.MapControllers();  
 app.Run();

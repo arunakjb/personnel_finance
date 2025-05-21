@@ -1,18 +1,26 @@
 <ng-container *ngIf="showRegisterForm">
-    <mat-card class="register-card">
-        <mat-card-header class="register-form-header">Register</mat-card-header>
-        <hr class="header-content-separator">
-        <mat-card-content class="register-form-contents">
-            <div class="form-elements">
-                <input class="input-field" type="email" placeholder="Email">
-                <input class="input-field" type="Password" placeholder="Password">
-                <input class="input-field" type="Password" placeholder="Confirm password">
-            </div>
-        </mat-card-content>
-        <mat-card-footer class="register-form-footer">
-            <button mat-button (click)="proceedRegister()">Register</button>
-        </mat-card-footer>
-    </mat-card>
+    <form #registerForm="ngForm" (ngSubmit)="proceedRegister()">
+        <mat-card class="register-card">
+            <mat-card-header class="register-form-header">Register</mat-card-header>
+            <hr class="header-content-separator">
+            <mat-card-content class="register-form-contents">
+                <div class="form-elements">
+                    <input class="input-field" name="email" [pattern]="emailPattern" [(ngModel)]="registerInputForm.Email" type="email" placeholder="Email" required #email="ngModel">
+                    <div class="error-text" *ngIf="email.errors && email.dirty">
+                        Invalid Email
+                    </div>
+                    <input class="input-field" name="password" [(ngModel)]="registerInputForm.Password" type="Password" placeholder="Password" required #password="ngModel">
+                    <input class="input-field" name="confirmPassword" [(ngModel)]="registerInputForm.ConfirmPassword" type="Password" placeholder="Confirm password" required #confirmPassword="ngModel">
+                    <div class="error-text" *ngIf="password.value != confirmPassword.value">
+                        Password Mismatch
+                    </div>
+                </div>
+            </mat-card-content>
+            <mat-card-footer class="register-form-footer">
+                <button mat-button type="submit" [disabled]="registerForm.invalid || password.value != confirmPassword.value">Register</button>
+            </mat-card-footer>
+        </mat-card>
+    </form>
 </ng-container>
 <ng-container *ngIf="renderLogin">
     <app-login-form></app-login-form>

@@ -28,7 +28,7 @@ $card-width : 600px;
         
         .input-field{
             color: azure;
-            background-color:  rgb(85, 132, 146);
+            background-color: rgb(85, 132, 146);
             outline: none;
             border-top: none;
             border-left: none;
@@ -47,6 +47,8 @@ $card-width : 600px;
                 opacity: 0.3;
             }
         }
+        .error-text{
+            color: red;
+        }
     }
-    
 }

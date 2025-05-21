@@ -13,6 +13,8 @@ import { LoginFormComponent } from '../account_component/login-form/login-form.c
 import { RegisterFormComponent } from '../account_component/register-form/register-form.component';
 import { LogoutFormComponent } from '../account_component/logout-form/logout-form.component';
 import { CustomContentComponent } from '../content_component/custom-content/custom-content.component';
+import { FormsModule } from '@angular/forms';
+import { provideHttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -31,9 +33,10 @@ import { CustomContentComponent } from '../content_component/custom-content/cust
     MatButtonModule,
     MatMenuModule,
     MatCardModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    FormsModule,
   ],
-  providers: [],
+  providers: [provideHttpClient()],
   bootstrap: [HomeComponent]
 })
 export class AppModule { }
